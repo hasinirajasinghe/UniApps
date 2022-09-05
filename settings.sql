@@ -1,0 +1,3 @@
+CREATE DATABASE uniapps;
+CREATE USER uauser WITH PASSWORD 'uniapps';
+GRANT ALL PRIVILEGES ON DATABASE uniapps TO uauser;
