@@ -6,12 +6,12 @@ from .models import Counselor, Applicant, Application
 class CounselorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Counselor
-        fields = ('name', 'email', 'password', 'university')
+        fields = ('id', 'name', 'email', 'password', 'university')
 
 class ApplicantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applicant
-        fields = ('name', 'email', 'phone_number', 'major', 'enrollment_status')
+        fields = ('id', 'name', 'email', 'phone_number', 'major', 'enrollment_status')
 
 class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
