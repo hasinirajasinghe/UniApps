@@ -48,15 +48,6 @@ MAJOR_CHOICES = [
     (FOOD_AND_NUTRITION, 'Food and Nutrition'),
     (UNDECIDED, 'Undecided')
 ]   
-
-class Counselor(models.Model):
-    name = models.CharField(max_length=150)
-    email = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    university = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.name
 class Applicant(models.Model):
     name = models.CharField(max_length=150)
     email = models.CharField(max_length=100)
@@ -106,6 +97,7 @@ class Application(models.Model):
         choices=MAJOR_CHOICES,
         default=UNDECIDED,
     )
+    
     IN_PROGRESS = 'IP'
     APPLIED = 'AP'
     PROCESSED = 'PR'
