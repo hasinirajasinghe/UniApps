@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
 from django.conf import settings
+from rest_framework.permissions import IsAuthenticated
 import jwt
 from .serializers import UserSerializer
 User = get_user_model()
@@ -15,20 +16,30 @@ User = get_user_model()
 class ApplicantList(generics.ListCreateAPIView):
     queryset = Applicant.objects.all()
     serializer_class = ApplicantSerializer
+    # permission_classes = [IsAuthenticated]
 
 class ApplicantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Applicant.objects.all()
     lookup_url_kwarg = 'id'
     serializer_class = ApplicantSerializer
+    # permission_classes = [IsAuthenticated]
 
 class ApplicationList(generics.ListCreateAPIView):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+    # permission_classes = [IsAuthenticated]
 
 class ApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Application.objects.all()
     lookup_url_kwarg = 'id'
     serializer_class = ApplicantSerializer
+    # permission_classes = [IsAuthenticated]
+
+class CheckToken(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response('success')
 
 class RegisterView(APIView):
 

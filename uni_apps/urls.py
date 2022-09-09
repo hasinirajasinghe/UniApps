@@ -8,4 +8,5 @@ urlpatterns = [
     path('applications/<int:id>/', views.ApplicationDetail.as_view(), name='application_detail'),
     path('register/', views.RegisterView.as_view(), name='register'),
     path('login/', views.LoginView.as_view(), name='login'),
+    path('checkToken/', views.CheckToken.as_view(), name='checkToken'),
 ]
