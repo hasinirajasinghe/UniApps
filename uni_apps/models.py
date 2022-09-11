@@ -82,10 +82,12 @@ class Application(models.Model):
     FALL = 'FA'
     SPRING = 'SP'
     SUMMER = 'SU'
+    WINTER = 'WI'
     INTENDED_START_CHOICES = [
         (FALL, 'Fall'),
         (SPRING, 'Spring'),
         (SUMMER, 'Summer'),
+        (WINTER, 'Winter'),
     ]
     intended_start = models.CharField(
         max_length=2,

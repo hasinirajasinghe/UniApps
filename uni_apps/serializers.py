@@ -11,12 +11,12 @@ User = get_user_model()
 class ApplicantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applicant
-        fields = ('id', 'name', 'email', 'phone_number', 'major', 'enrollment_status')
+        fields = ('id', 'name', 'email', 'phone_number', 'major', 'get_major_display', 'enrollment_status', 'get_enrollment_status_display')
 
 class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Application
-        fields = ('id', 'applicant','academic_year', 'intended_start', 'intended_major', 'status', 'last_updated', 'school_last_attended', 'gpa')
+        fields = ('id', 'applicant','academic_year', 'intended_start', 'get_intended_start_display', 'intended_major', 'get_intended_major_display', 'status', 'get_status_display','last_updated', 'school_last_attended', 'gpa')
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -31,10 +31,10 @@ class UserSerializer(serializers.ModelSerializer):
         if password != password_confirmation:
             raise serializers.ValidationError({'password_confirmation': 'Passwords do not match'})
 
-        try:
-            validations.validate_password(password=password)
-        except ValidationError as err:
-            raise serializers.ValidationError({'password': err.messages})
+        # try:
+        #     validations.validate_password(password=password)
+        # except ValidationError as err:
+        #     raise serializers.ValidationError({'password': err.messages})
 
         data['password'] = make_password(password)
         return data

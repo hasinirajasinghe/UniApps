@@ -9,4 +9,8 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),
     path('login/', views.LoginView.as_view(), name='login'),
     path('checkToken/', views.CheckToken.as_view(), name='checkToken'),
+    path('majors/', views.get_all_majors, name='majors'),
+    path('enrollment-statuses/', views.get_all_enrollment_status, name='enrollment_statuses'),
+    path('terms/', views.get_all_terms, name='terms'),
+    path('application-statuses/', views.get_all_application_status, name='application_statuses'),
 ]

@@ -1,3 +1,4 @@
+from os import major
 from django.shortcuts import render
 from rest_framework import generics
 from .serializers import ApplicantSerializer, ApplicationSerializer
@@ -10,9 +11,46 @@ from django.conf import settings
 from rest_framework.permissions import IsAuthenticated
 import jwt
 from .serializers import UserSerializer
+from django.http import JsonResponse
 User = get_user_model()
 
 # Create your views here.
+
+def get_all_enrollment_status(request):
+    enrollment_statuses = Applicant._meta.get_field('enrollment_status').choices
+    response = {}
+    for status in enrollment_statuses:
+        statusKey = status[0]
+        statusValue = status[1]
+        response[statusKey] = statusValue
+    return JsonResponse(response, safe=False)
+
+def get_all_majors(request):
+    majors = Applicant._meta.get_field('major').choices
+    response = {}
+    for major in majors:
+        majorKey = major[0]
+        majorValue = major[1]
+        response[majorKey] = majorValue
+    return JsonResponse(response, safe=False)
+
+def get_all_terms(request):
+    terms = Application._meta.get_field('intended_start').choices
+    response = {}
+    for term in terms:
+        termKey = term[0]
+        termValue = term[1]
+        response[termKey] = termValue
+    return JsonResponse(response, safe=False)
+
+def get_all_application_status(request):
+    application_statuses = Application._meta.get_field('status').choices
+    response = {}
+    for status in application_statuses:
+        statusKey = status[0]
+        statusValue = status[1]
+        response[statusKey] = statusValue
+    return JsonResponse(response, safe=False)
 class ApplicantList(generics.ListCreateAPIView):
     queryset = Applicant.objects.all()
     serializer_class = ApplicantSerializer
