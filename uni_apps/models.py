@@ -4,6 +4,7 @@ from django.db import models
 
 # Create your models here.
 
+UNDECIDED = 'UNDC'
 COMPUTER_SCIENCE = 'CSCI'
 CHEMISTRY = 'CHEM'
 ENGINEERING = 'ENGI'
@@ -24,8 +25,8 @@ AGRICULTURAL_SCIENCES = 'AGSC'
 CULINARY_ARTS = 'CUAR'
 FILM_AND_PHOTOGRAPHY = 'FIPH'
 FOOD_AND_NUTRITION = 'FDNU'
-UNDECIDED = 'UNDC'
 MAJOR_CHOICES = [
+    (UNDECIDED, 'Undecided'),
     (COMPUTER_SCIENCE, 'Computer Science'),
     (CHEMISTRY, 'Chemistry'),
     (ENGINEERING, 'Engineering'),
@@ -46,7 +47,6 @@ MAJOR_CHOICES = [
     (CULINARY_ARTS, 'Culinary Arts'),
     (FILM_AND_PHOTOGRAPHY, 'Film and Photography'),
     (FOOD_AND_NUTRITION, 'Food and Nutrition'),
-    (UNDECIDED, 'Undecided')
 ]   
 class Applicant(models.Model):
     name = models.CharField(max_length=150)
