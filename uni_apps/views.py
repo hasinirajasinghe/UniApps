@@ -70,7 +70,7 @@ class ApplicationList(generics.ListCreateAPIView):
 class ApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Application.objects.all()
     lookup_url_kwarg = 'id'
-    serializer_class = ApplicantSerializer
+    serializer_class = ApplicationSerializer
     # permission_classes = [IsAuthenticated]
 
 class CheckToken(APIView):
