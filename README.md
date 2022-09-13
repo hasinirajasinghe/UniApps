@@ -63,6 +63,7 @@
 #### Stretch Goals
 
 - [ ] As a logged in user, I would like to see visual charts showing the overall analysis of applicants and applications.
+- [ ] As a logged in user, I would like to have a search functionality to search applicants and applications. 
 - [ ] As a logged in user, I would like to have a text feature to send and receive messages from applicants.
 - [ ] As a logged in user, I would like to be able to have live chat functionality.
 
