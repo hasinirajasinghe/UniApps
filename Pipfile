@@ -11,6 +11,7 @@ gunicorn = "*"
 django-heroku = "*"
 psycopg2 = "*"
 whitenoise = "*"
+pyjwt = "*"
 
 [dev-packages]
 
